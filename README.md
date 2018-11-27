@@ -149,12 +149,13 @@ Then perform the following commands on the root folder:
 - [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.8.0
 
 ### Configure a Service Account
-In order to execute this module you must have a Service Account with the following:
+In order to execute this module you must have a Service Account with the
+following project roles:
 
-#### Roles
-The service account with the following roles:
-- roles/compute.viewer on the project
-- roles/container.clusterAdmin on the project
+- roles/compute.viewer
+- roles/container.clusterAdmin
+- roles/container.developer
+- roles/iam.serviceAccountUser
 
 ### Enable API's
 In order to operate with the Service Account you must activate the following APIs on the project where the Service Account was created:
