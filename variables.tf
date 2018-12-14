@@ -189,3 +189,23 @@ variable "monitoring_service" {
   description = "The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com, monitoring.googleapis.com/kubernetes (beta) and none"
   default     = "monitoring.googleapis.com"
 }
+
+variable "enable_basic_auth" {
+  description = "Basic authentication allows a user to authenticate to the cluster with a username and password. To maximize the security of your cluster, disable this option. Basic authentication is not recommended because it provides no confidentiality protection for transmitted credentials. Default: true"
+  default = true
+}
+
+variable "basic_auth_username" {
+  description = "Kubernetes HTTP Basic auth username. Defaults to empty string. Only used if `enable_basic_auth` is true"
+  default = ""
+}
+
+variable "basic_auth_password" {
+  description = "Kubernetes HTTP Basic auth password. Defaults to empty string. Only used if `enable_basic_auth` is true"
+  default = ""
+}
+
+variable "issue_client_certificate" {
+  description = "Issues a client certificate to authenticate to the cluster endpoint. To maximize the security of your cluster, leave this option disabled. Client certificates don't automatically rotate and aren't easily revocable. WARNING: changing this after cluster creation is destructive! Default: false"
+  default = false
+}
